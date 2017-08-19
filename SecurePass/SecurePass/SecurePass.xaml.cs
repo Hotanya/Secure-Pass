@@ -29,7 +29,8 @@ namespace SecurePass
             Random r = new Random();
             
             //for lower
-            int countLower = r.Next(lower.Count); 
+            int countLower = r.Next(lower.Count);
+            int countLower1 = r.Next(lower.Count);
             foreach (string i in lower)
             {
                 //valueLabel.Text = lower[countLower];
@@ -38,6 +39,7 @@ namespace SecurePass
 
             //for upper
             int countUpper = r.Next(upper.Count);
+            int countUpper1 = r.Next(upper.Count);
             foreach (string i in upper)
             {
                 //valueLabel.Text = upper[countUpper];
@@ -46,6 +48,7 @@ namespace SecurePass
 
             //for number
             int countNumber = r.Next(number.Count);
+            int countNumber1 = r.Next(number.Count);
             foreach (int i in number)
             {
                 //valueLabel.Text = number[countNumber];
@@ -54,13 +57,25 @@ namespace SecurePass
 
             //for special
             int countSpecial = r.Next(special.Count);
+            int countSpecial1 = r.Next(special.Count);
             foreach (string i in special)
             {
                 //valueLabel.Text = special[countSpecial];
                 var s = special[countSpecial];
             }
+            var p1 = lower[countLower];
+            var p11 = lower[countLower1];
 
-            valueLabel.Text = "Your password is: " + lower[countLower] + lower[countLower] + upper[countUpper] + upper[countUpper] + number[countNumber] + number[countNumber] + special[countSpecial] + special[countSpecial];
+            var p2 = upper[countUpper];
+            var p22 = upper[countUpper1];
+
+            var p3 = number[countNumber];
+            var p33 = number[countNumber1];
+
+            var p4 = special[countSpecial];
+            var p44 = special[countSpecial1];
+
+            valueLabel.Text = "Your password is: " + p1 + p11 + p2 + p22 + p3 + p33 + p4 +p44;
         }
     }
 }

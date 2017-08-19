@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SecurePass.SecurePass">
-    
+
+    <StackLayout>
     <Label Text="SecurePass"
          VerticalOptions="Start"
          HorizontalTextAlignment="Center"
@@ -11,4 +12,11 @@
          FontSize="Large"
          FontAttributes="Bold"
          TextColor="Black" />
+
+    <Button Text="Generate Password"
+        HorizontalOptions="Center"
+        VerticalOptions="CenterAndExpand"
+        Clicked="OnButtonClicked" />
+        
+    </StackLayout>
 </ContentPage>

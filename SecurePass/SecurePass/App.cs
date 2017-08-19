@@ -28,7 +28,7 @@ namespace SecurePass
                 }
             };
 
-            MainPage = new NavigationPage(content);
+            MainPage = new SecurePass();
         }       
 
             protected override void OnStart()
@@ -50,6 +50,7 @@ namespace SecurePass
     
     public class Main
     {
+
         // need to add a button or something which will do this when clicked
         public static void GeneratePass()
         {

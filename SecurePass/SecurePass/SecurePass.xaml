@@ -17,6 +17,13 @@
         HorizontalOptions="Center"
         VerticalOptions="CenterAndExpand"
         Clicked="OnButtonClicked" />
+
+
+    <Label x:Name="valueLabel"
+       Text="A simple Label"
+       Font="Large"
+       HorizontalOptions="Center"
+       VerticalOptions="CenterAndExpand" />
         
     </StackLayout>
 </ContentPage>

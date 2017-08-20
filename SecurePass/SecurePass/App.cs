@@ -10,25 +10,17 @@ namespace SecurePass
 {
     public class App : Application
     {
+
+        public static NavigationPage NavigationPage { get; private set; }
+        public static Pages.root root;
         public App()
         {
-            // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "SecurePass",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
-
-            MainPage = new SecurePass();
+            var menuPage = new Pages.MenuPage();
+            NavigationPage = new NavigationPage(new SecurePass());
+            root = new Pages.root();
+            root.Master = menuPage;
+            root.Detail = NavigationPage;
+            MainPage = root;
         }       
 
             protected override void OnStart()

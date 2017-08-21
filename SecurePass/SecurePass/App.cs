@@ -13,6 +13,19 @@ namespace SecurePass
 
         public static NavigationPage NavigationPage { get; private set; }
         public static Pages.root root;
+
+        public static bool MenuIsPresented
+        {
+            get
+            {
+                return root.IsPresented;
+            }
+            set
+            {
+                root.IsPresented = value;
+            }
+        }
+
         public App()
         {
             var menuPage = new Pages.MenuPage();

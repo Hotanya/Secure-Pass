@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="IDatabaseConnection.cs" />
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
@@ -50,6 +51,8 @@
     <Compile Include="Pages\SecurePass.xaml.cs">
       <DependentUpon>SecurePass.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="UserDatabase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />

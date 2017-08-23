@@ -64,12 +64,21 @@ namespace SecurePass
         //          ("SELECT * FROM Item WHERE Country = 'Italy'").AsEnumerable();
         //    }
         //}
+
+        public IEnumerable<User> GetApplications()
+        {
+            lock (collisionLock)
+            {
+                return (from i in database.Table<User>() select i).ToList();
+            }
+        }
+
         public User GetApplication(int id)
         {
             lock (collisionLock)
             {
                 return database.Table<User>().
-                  FirstOrDefault(customer => customer.Id == id);
+                  FirstOrDefault(applicationInstance => applicationInstance.Id == id);
             }
         }
         public int SaveApplication(User applicationInstance)
@@ -108,7 +117,7 @@ namespace SecurePass
         public int DeleteApplication(User applicationInstance)
         {
             var id = applicationInstance.Id;
-            if (id != 0)
+            if (id != -1)
             {
                 lock (collisionLock)
                 {

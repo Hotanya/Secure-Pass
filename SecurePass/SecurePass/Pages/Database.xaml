@@ -10,7 +10,7 @@
                 <ViewCell>
                     <StackLayout Orientation="Vertical">
                         <Entry Text="{Binding Id}" IsEnabled="False"/>
-                        <Entry Text="{Binding ApplicationName}" />
+                        <Entry Text="{Binding AccountName}" />
                         <Entry Text="{Binding Password}"/>
                         <Entry Text="{Binding Country}"/>
                     </StackLayout>

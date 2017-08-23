@@ -20,10 +20,14 @@
 
 
     <Label x:Name="valueLabel"
-       Text="A simple Label"
        Font="Large"
        HorizontalOptions="Center"
        VerticalOptions="CenterAndExpand" />
-        
+
+    <Button Text="Copy Password"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+       Clicked="Button_Clicked" />
+
     </StackLayout>
 </ContentPage>

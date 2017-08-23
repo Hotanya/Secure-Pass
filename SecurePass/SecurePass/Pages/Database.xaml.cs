@@ -27,6 +27,7 @@ namespace SecurePass.Pages
             // The instance of CustomersDataAccess
             // is the data binding source
             this.BindingContext = this.dataAccess;
+            this.dataAccess.GetApplications();
         }
         // Save any pending changes
         private void OnSaveClick(object sender, EventArgs e)

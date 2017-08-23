@@ -2,7 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SecurePass.Pages.Database">
-    <ContentPage.Content>
-        <Label Text="Second Page" VerticalOptions="Center" HorizontalOptions="Center" />
-    </ContentPage.Content>
+    <ListView x:Name="CustomersView"
+            ItemsSource="{Binding Path=Customers}"
+            ListView.RowHeight="150">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Vertical">
+                        <Entry Text="{Binding Id}" IsEnabled="False"/>
+                        <Entry Text="{Binding ApplicationName}" />
+                        <Entry Text="{Binding Password}"/>
+                        <Entry Text="{Binding Country}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Add" Activated="OnAddClick"
+               Priority="0" Order="Secondary" />
+        <ToolbarItem Name="Remove" Activated="OnRemoveClick"
+               Priority="1" Order="Secondary" />
+        <ToolbarItem Name="Remove all" Activated="OnRemoveAllClick"
+               Priority="2" Order="Secondary" />
+        <ToolbarItem Name="Save" Activated="OnSaveClick"
+               Priority="3" Order="Secondary" />
+    </ContentPage.ToolbarItems>
 </ContentPage>

@@ -29,6 +29,7 @@ namespace SecurePass.Pages
 
         void GoDb(object obj)
         {
+            //var database = new CustomersDataAccess();
             App.root.Detail = new NavigationPage(new Database());
             App.MenuIsPresented = false;
         }

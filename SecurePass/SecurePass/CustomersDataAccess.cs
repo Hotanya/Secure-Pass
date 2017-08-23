@@ -37,8 +37,8 @@ namespace SecurePass
               Add(new User
               {
                   Id = 0,
-                  AccountName = "Company name...",
-                  Password = "Address...",
+                  AccountName = "Account name...",
+                  Password = "Password...",
               });
         }
 

@@ -2,30 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SecurePass.Pages.Database">
-    <ListView x:Name="CustomersView"
-            ItemsSource="{Binding Path=Applications}"
-            ListView.RowHeight="150">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="OnApplicationAdded">
+            <ToolbarItem.Icon>
+                <!--<OnPlatform x:TypeArguments="FileImageSource" Android="plus.png" />-->
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="listView" Margin="20" ItemSelected="OnApplicationItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Vertical">
-                        <Entry Text="{Binding Id}" IsEnabled="False"/>
-                        <Entry Text="{Binding AccountName}" />
-                        <Entry Text="{Binding Password}"/>
-                        <Entry Text="{Binding Country}"/>
+                    <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding AccountName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Add" Activated="OnAddClick"
-               Priority="0" Order="Secondary" />
-        <ToolbarItem Name="Remove" Activated="OnRemoveClick"
-               Priority="1" Order="Secondary" />
-        <ToolbarItem Name="Remove all" Activated="OnRemoveAllClick"
-               Priority="2" Order="Secondary" />
-        <ToolbarItem Name="Save" Activated="OnSaveClick"
-               Priority="3" Order="Secondary" />
-    </ContentPage.ToolbarItems>
 </ContentPage>

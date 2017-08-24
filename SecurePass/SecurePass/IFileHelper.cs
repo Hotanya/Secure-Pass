@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 
 namespace SecurePass
 {
-    public interface IDatabaseConnection
+    public interface IFileHelper
     {
-        SQLiteAsyncConnection DbConnection();
+        string GetLocalFilePath(string filename);
     }
 }

@@ -10,6 +10,7 @@ namespace SecurePass
 {
     public class App : Application
     {
+       
 
         public static NavigationPage NavigationPage { get; private set; }
         public static Pages.root root;
@@ -25,6 +26,7 @@ namespace SecurePass
                 root.IsPresented = value;
             }
         }
+        static CustomersDataAccess database;
 
         public App()
         {
@@ -34,9 +36,23 @@ namespace SecurePass
             root.Master = menuPage;
             root.Detail = NavigationPage;
             MainPage = root;
-        }       
+        }      
+        
+        public static CustomersDataAccess Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new CustomersDataAccess(DependencyService.Get<IFileHelper>().GetLocalFilePath("SecurePass.db3"));
+                }
+                return database;
+            }
+        }
 
-            protected override void OnStart()
+        public int ResumeAtApplicationId { get; set; }
+
+        protected override void OnStart()
         {
             // Handle when your app starts
         }
@@ -49,23 +65,6 @@ namespace SecurePass
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }
-    }
-
-    
-    public class Main
-    {
-
-        // need to add a button or something which will do this when clicked
-        public static void GeneratePass()
-        {
-            string[] lower = new string[26] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-            string[] upper = new string[26] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-            int[] number = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            string[] special = new string[13] { "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+" };
-
-            foreach (string i in lower)
-                Debug.WriteLine(i);
         }
     }
 }

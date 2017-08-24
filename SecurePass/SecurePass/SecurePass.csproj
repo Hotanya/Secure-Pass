@@ -37,7 +37,6 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="CustomersDataAccess.cs" />
-    <Compile Include="dbPath.cs" />
     <Compile Include="IDatabaseConnection.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="Pages\Database.xaml.cs">

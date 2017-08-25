@@ -1,7 +1,7 @@
 # Secure-Pass
 This is an application which generates secure and robust password.
 
-<img src ="https://github.com/Hotanya/Secure-Pass/blob/master/SecurePass.png" height = "400" alt = "SecurePass Screenshot">
+<img src ="https://github.com/Hotanya/Secure-Pass/blob/master/images/HomePage.png" height = "400" alt = "SecurePass Screenshot"> <img src ="https://github.com/Hotanya/Secure-Pass/blob/master/images/AddEditView.png" height = "400" alt = "SecurePass Screenshot"> <img src ="https://github.com/Hotanya/Secure-Pass/blob/master/images/ViewAccounts.png" height = "400" alt = "SecurePass Screenshot">
 
 Currently has a fixed length of 8 characters and a mixture of uppercase, lowercase, numbers and special characters.
 

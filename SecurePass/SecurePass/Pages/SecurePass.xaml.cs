@@ -1,12 +1,14 @@
-﻿using System;
+﻿using SecurePass.Pages;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SecurePass;
 
 namespace SecurePass
 {
@@ -17,8 +19,8 @@ namespace SecurePass
         {
             InitializeComponent();
         }
-
-        void OnButtonClicked(object sender, EventArgs args)
+        string output { get; set; }
+       public void OnButtonClicked(object sender, EventArgs args)
         {
             var lower = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
             var upper = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
@@ -75,12 +77,17 @@ namespace SecurePass
             var p4 = special[countSpecial];
             var p44 = special[countSpecial1];
 
+            output = p1 + p11 + p2 + p22 + p3 + p33 + p4 + p44;
+
             valueLabel.Text = "Your password is: " + p1 + p11 + p2 + p22 + p3 + p33 + p4 +p44;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-
+        async void Button_Clicked(object sender, EventArgs e)
+        {           
+            await Navigation.PushAsync(new DetailsPage
+            {
+                BindingContext = new User { Password = output }                
+            });
         }
     }
 }

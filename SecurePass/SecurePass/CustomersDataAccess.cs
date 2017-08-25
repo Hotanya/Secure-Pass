@@ -26,6 +26,7 @@ namespace SecurePass
         {
             return database.Table<User>().ToListAsync();
         }
+        
 
         public Task<List<User>> GetApplicationsNotDoneAsync()
         {
@@ -53,5 +54,6 @@ namespace SecurePass
         {
             return database.DeleteAsync(application);
         }
+        
     }
 }

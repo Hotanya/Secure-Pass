@@ -16,7 +16,70 @@ namespace SecurePass.Pages
         public DetailsPage()
         {
             InitializeComponent();
+
+            var nameEntry = new Entry();
+            nameEntry.SetBinding(Entry.TextProperty, "AccountName");
+
+            var passEntry = new Entry();
+            passEntry.SetBinding(Entry.TextProperty, "Password");
+
+            var doneSwitch = new Switch();
+            doneSwitch.SetBinding(Switch.IsToggledProperty, "Done");
+
+            var saveButton = new Button { Text = "Save" };
+            saveButton.Clicked += async (sender, e) =>
+            {
+                var application = (User)BindingContext;
+                await App.Database.SaveApplicationAsync(application);
+                await Navigation.PopAsync();
+            };
+
+            var deleteButton = new Button { Text = "Delete" };
+            deleteButton.Clicked += async (sender, e) =>
+            {
+                var application = (User)BindingContext;
+                await App.Database.DeleteItemAsync(application);
+                await Navigation.PopAsync();
+            };
+
+            var cancelButton = new Button { Text = "Cancel" };
+            cancelButton.Clicked += async (sender, e) =>
+            {
+                await Navigation.PopAsync();
+            };
+
+            
+
+            Content = new StackLayout
+            {
+                Margin = new Thickness(20),
+                VerticalOptions = LayoutOptions.StartAndExpand,
+                Children =
+                {
+                    new Label { Text = "AccountName" },
+                    nameEntry,
+                    new Label { Text = "Password" },
+                    passEntry,
+                    new Label { Text = "Done" },
+
+                    doneSwitch,
+                    saveButton,
+                    deleteButton,
+                    cancelButton,
+                }
+
+            };
+            //why this no work??
+            if (doneSwitch.IsToggled) {
+                var toggle = passEntry.IsEnabled == true;
+                return;
+            }
+            else {
+                var toggle = nameEntry.IsEnabled == false;
+                return;
+            }
         }
+
 
         async void OnSaveClicked(object sender, EventArgs e)
         {
@@ -36,5 +99,6 @@ namespace SecurePass.Pages
         {
             await Navigation.PopAsync();
         }
+
     }
 }

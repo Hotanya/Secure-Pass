@@ -10,11 +10,13 @@ using Xamarin.Forms.Xaml;
 
 namespace SecurePass.Pages
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Database : ContentPage
     {
         public Database()
         {
+            Title = "Accounts";
             InitializeComponent();
         }
 

@@ -60,9 +60,9 @@ namespace SecurePass.Pages
                     nameEntry,
                     new Label { Text = "Password" },
                     passEntry,
-                    new Label { Text = "Done" },
+                    //new Label { Text = "Done" },
 
-                    doneSwitch,
+                    //doneSwitch,
                     saveButton,
                     deleteButton,
                     cancelButton,

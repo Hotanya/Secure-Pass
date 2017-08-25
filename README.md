@@ -7,7 +7,7 @@ Currently has a fixed length of 8 characters and a mixture of uppercase, lowerca
 
 __Future additions (in no particular order):__
 
-* Add a way to store generated password
+* ~~Add a way to store generated password~~ ✔
 * Option to choose complexity of password
 * Making it look pwetty!
 * Login??

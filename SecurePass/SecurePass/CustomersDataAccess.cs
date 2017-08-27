@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using System.Collections.ObjectModel;
 
 namespace SecurePass
@@ -43,7 +44,7 @@ namespace SecurePass
             if (application.Id != 0)
             {
                 return database.UpdateAsync(application);
-            }
+            }            
             else
             {
                 return database.InsertAsync(application);

@@ -13,8 +13,7 @@ namespace SecurePass.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsPage : ContentPage
     {
-        string nameEntry { get; set; }
-        string passEntry { get; set; }
+        
         public DetailsPage()
         {
             
@@ -24,12 +23,10 @@ namespace SecurePass.Pages
             nameEntry.SetBinding(Entry.TextProperty, "AccountName");
 
             var passEntry = new Entry();
-            passEntry.SetBinding(Entry.TextProperty, "Password");
+            passEntry.SetBinding(Entry.TextProperty, "Password");            
 
-           
-
-            var doneSwitch = new Switch();
-            doneSwitch.SetBinding(Switch.IsToggledProperty, "Done");
+            var editSwitch = new Switch();
+            editSwitch.SetBinding(Switch.IsToggledProperty, "Edit");
 
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += async (sender, e) =>
@@ -67,10 +64,8 @@ namespace SecurePass.Pages
             {
                 await Navigation.PopAsync();
             };
-
-
-
-
+            
+            
             Content = new StackLayout
             {
                 Margin = new Thickness(20),
@@ -81,28 +76,42 @@ namespace SecurePass.Pages
                     nameEntry,
                     new Label { Text = "Password" },
                     passEntry,
-                    //new Label { Text = "Done" },
+                    new Label { Text = "Edit" },
+                    editSwitch,
 
-                    //doneSwitch,
+                    editSwitch,
                     saveButton,
                     deleteButton,
                     cancelButton,
                 }
-
             };
-
-
-
-            //why this no work??
-            if (doneSwitch.IsToggled) {
-                var toggle = passEntry.IsEnabled == true;
-                return;
-            }
-            else {
-                var toggle = nameEntry.IsEnabled == false;
-                return;
+            //if (editSwitch.IsToggled == false)
+            //{
+            //    passEntry.IsEnabled = false;
+            //    nameEntry.IsEnabled = false;
+            //}
+            if (editSwitch.IsToggled == true)
+            {
+                passEntry.IsEnabled = true;
+                nameEntry.IsEnabled = true;
             }
         }
+        string nameEntry { get; set; }
+        string passEntry { get; set; }
+        //async void enable(object sender, EventArgs e)
+        //{
+        //    //why this no work??
+        //    if (doneSwitch.IsToggled)
+        //    {
+        //        var toggle = passEntry.IsEnabled == true;
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        var toggle = nameEntry.IsEnabled == false;
+        //        return;
+        //    }
+        //}
 
 
         async void OnSaveClicked(object sender, EventArgs e)

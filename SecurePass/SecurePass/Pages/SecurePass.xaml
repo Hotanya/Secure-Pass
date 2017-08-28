@@ -4,7 +4,7 @@
              x:Class="SecurePass.SecurePass">
 
     <StackLayout>
-    <Label Text="SecurePass"
+    <!--<Label Text="SecurePass"
          VerticalOptions="Start"
          HorizontalTextAlignment="Center"
          Rotation="0"
@@ -13,21 +13,20 @@
          FontAttributes="Bold"
          TextColor="Black" />
 
-    <Button Text="Generate Password"
+        <Button Text="Generate Password"
         HorizontalOptions="Center"
         VerticalOptions="CenterAndExpand"
-        Clicked="OnButtonClicked" />
+        Clicked="OnButtonClicked" />-->   
 
-
-    <Label x:Name="valueLabel"
+    <!--<Label x:Name="valueLabel"
        Font="Large"
        HorizontalOptions="Center"
-       VerticalOptions="CenterAndExpand" />
+       VerticalOptions="CenterAndExpand" />-->
 
-    <Button Text="Copy Password"
+    <!--<Button Text="Copy Password"
        HorizontalOptions="Center"
        VerticalOptions="Center"
-       Clicked="Button_Clicked" />
+       Clicked="Button_Clicked" />-->
 
     </StackLayout>
 </ContentPage>

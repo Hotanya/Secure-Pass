@@ -15,8 +15,12 @@ namespace SecurePass
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SecurePass : ContentPage
     {
+        private double step;
         Label label;
         Label valueLabel;
+        private int cat;
+        private IEnumerable<string> all;
+        
 
         public SecurePass()
         {
@@ -24,7 +28,9 @@ namespace SecurePass
             Label header = new Label
             {
                 Text = "SecurePass",
-                Font = Font.BoldSystemFontOfSize(50),
+                Font = Font.SystemFontOfSize(50),
+                FontAttributes = FontAttributes.Bold,
+                TextColor = Color.Black,
                 HorizontalOptions = LayoutOptions.Center
             };
 
@@ -34,27 +40,30 @@ namespace SecurePass
             var copyButton = new Button { Text = "Copy Password" };
             copyButton.Clicked += CopyPassword;
 
+            step = 1.0;
             Slider slider = new Slider
             {
                 Minimum = 0,
                 Maximum = 50,
+                Value = 0,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
             slider.ValueChanged += Slider_ValueChanged;
 
             valueLabel = new Label
-            {                
-                Font = Font.SystemFontOfSize(NamedSize.Large),
+            {
+                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
             label = new Label
             {
-                Text = "Slider value is 0",
-                Font = Font.SystemFontOfSize(NamedSize.Large),
+                Text = "Password length is 0",
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+
             };
 
             // Accomodate iPhone status bar.
@@ -65,34 +74,31 @@ namespace SecurePass
             {
                 Children =
                 {
-                    header,                    
+                    header,
+                    label,
                     slider,
                     generateButton,
                     valueLabel,
                     copyButton,
-                    //label
+
                 }
             };
         }
 
-        private void GenerateButton_Clicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         string output { get; set; }
-        
+        int currentStep { get; set; }
+
         public void OnButtonClicked(object sender, EventArgs args)
         {
             var lower = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
             var upper = new List<string> { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
             var number = new List<string> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-            var special = new List<string> { "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ",", ".", "'", "{", "}", "<", ">", "=", "_", "`","|" , "/" };
+            var special = new List<string> { "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ",", ".", "'", "{", "}", "<", ">", "=", "_", "`", "|", "/" };
             var all = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", ",", ".", "'", "{", "}", "<", ">", "=", "_", "`", "|", "/" };
 
             //Starting the Random
             Random r = new Random();
-            
+
             //for lower
             int countLower = r.Next(lower.Count);
             int countLower1 = r.Next(lower.Count);
@@ -133,7 +139,7 @@ namespace SecurePass
             int countAll = r.Next(all.Count);
             foreach (string i in all)
             {
-                 var a = all[countAll];
+                var a = all[countAll];
             }
 
             var p1 = lower[countLower];
@@ -148,23 +154,31 @@ namespace SecurePass
             var p4 = special[countSpecial];
             var p44 = special[countSpecial1];
 
+            var a1 = all[countAll];
+
+
             var mix = new List<string> { lower[countLower], upper[countUpper], number[countNumber], special[countSpecial], all[countAll] };
-            var bleh = new List<string> { };
-            int numbr = 5;
-            for(int e = 0; e < numbr; e += 1)
-            {
-                foreach (string i in mix)
-                {
-                    bleh.Add(i);
-                }
+            string [] bleh = new string[51];
+
+            //for (var i = 0; i < currentStep; i++)
+            //{
+            //    foreach (string x in all)
+            //    {
+            //        bleh[i] = x;
+            //    }
                 
-            }
+            //}
 
+            output = p1 + p11 + p2 + p22 + p3 + p33 + p4 + p44;
+            valueLabel.Text = "Your password is: " + output; //bleh.GetRange(0, newStep);           
+        }
 
-            output =  p1 + p11 + p2 + p22 + p3 + p33 + p4 + p44;
-
-            
-            valueLabel.Text = "Your password is: " + p1 + p11 + p2 + p22 + p3 + p33 + p4 +p44; /*+ all[countAll] + all[countAll] + all[countAll] + all[countAll]*/ 
+        public void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            var newStep = Math.Round(e.NewValue / step);
+            var currentStep = newStep.ToString();
+            var cat = currentStep.ToString();
+            label.Text = "Password length is " + cat;
         }
 
         async void CopyPassword(object sender, EventArgs e)
@@ -172,13 +186,7 @@ namespace SecurePass
             await Navigation.PushAsync(new DetailsPage
             {
                 BindingContext = new User { Password = output }                
-            });
-            
-        }
-
-        void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            label.Text = String.Format("Password length is {0:F1}", e.NewValue);
+            });            
         }
     }
 }

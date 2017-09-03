@@ -34,10 +34,13 @@ namespace SecurePass
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            var generateButton = new Button { Text = "Generate Password" };
+            var generateButton = new Button { Text = "Generate Password",
+            HorizontalOptions = LayoutOptions.Center};
             generateButton.Clicked += OnButtonClicked;
 
-            var copyButton = new Button { Text = "Copy Password" };
+            var copyButton = new Button { Text = "Copy Password",
+                HorizontalOptions = LayoutOptions.Center
+            };
             copyButton.Clicked += CopyPassword;
 
             //step = 1.0;

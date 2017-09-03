@@ -76,10 +76,10 @@ namespace SecurePass.Pages
                     nameEntry,
                     new Label { Text = "Password" },
                     passEntry,
-                    new Label { Text = "Edit" },
-                    editSwitch,
+                    //new Label { Text = "Edit" },
+                    //editSwitch,
 
-                    editSwitch,
+                    //editSwitch,
                     saveButton,
                     deleteButton,
                     cancelButton,

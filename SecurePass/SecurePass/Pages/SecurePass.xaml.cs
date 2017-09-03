@@ -27,7 +27,7 @@ namespace SecurePass
             InitializeComponent();
             Label header = new Label
             {
-                Text = "SecurePass",
+                Text = "eSecurePass",
                 Font = Font.SystemFontOfSize(50),
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.Black,
@@ -40,15 +40,15 @@ namespace SecurePass
             var copyButton = new Button { Text = "Copy Password" };
             copyButton.Clicked += CopyPassword;
 
-            step = 1.0;
-            Slider slider = new Slider
-            {
-                Minimum = 0,
-                Maximum = 50,
-                Value = 0,
-                VerticalOptions = LayoutOptions.CenterAndExpand
-            };
-            slider.ValueChanged += Slider_ValueChanged;
+            //step = 1.0;
+            //Slider slider = new Slider
+            //{
+            //    Minimum = 0,
+            //    Maximum = 50,
+            //    Value = 0,
+            //    VerticalOptions = LayoutOptions.CenterAndExpand
+            //};
+            //slider.ValueChanged += Slider_ValueChanged;
 
             valueLabel = new Label
             {
@@ -57,17 +57,17 @@ namespace SecurePass
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
-            label = new Label
-            {
-                Text = "Password length is 0",
-                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+            //label = new Label
+            //{
+            //    Text = "Password length is 0",
+            //    FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+            //    HorizontalOptions = LayoutOptions.Center,
+            //    VerticalOptions = LayoutOptions.CenterAndExpand,
 
-            };
+            //};
 
             // Accomodate iPhone status bar.
-            this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+            //this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             // Build the page.
             this.Content = new StackLayout
@@ -75,8 +75,8 @@ namespace SecurePass
                 Children =
                 {
                     header,
-                    label,
-                    slider,
+                    //label,
+                    //slider,
                     generateButton,
                     valueLabel,
                     copyButton,
@@ -187,6 +187,10 @@ namespace SecurePass
             {
                 BindingContext = new User { Password = output }                
             });            
+        }
+
+        public class App : Application
+        {
         }
     }
 }

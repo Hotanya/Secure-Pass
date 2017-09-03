@@ -23,7 +23,7 @@ namespace SecurePass.Pages
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            
             // Reset the 'resume' id, since we just want to re-start here
             ((App)App.Current).ResumeAtApplicationId = -1;
             listView.ItemsSource = await App.Database.GetApplicationsAsync();

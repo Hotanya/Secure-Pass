@@ -23,9 +23,18 @@ namespace SecurePass.Pages
             nameEntry.SetBinding(Entry.TextProperty, "AccountName");
 
             var passEntry = new Entry();
-            passEntry.SetBinding(Entry.TextProperty, "Password");            
+            passEntry.SetBinding(Entry.TextProperty, "Password");
+            passEntry.IsPassword = true;
 
-            var editSwitch = new Switch();
+            var showButton = new Button { Text = "Show Password",
+            HeightRequest = 50,
+            WidthRequest= 100};
+            showButton.Clicked += async (sender, e) =>
+            {
+                passEntry.IsPassword = false;
+            };
+
+                var editSwitch = new Switch();
             editSwitch.SetBinding(Switch.IsToggledProperty, "Edit");
 
             var saveButton = new Button { Text = "Save" };
@@ -64,8 +73,8 @@ namespace SecurePass.Pages
             {
                 await Navigation.PopAsync();
             };
-            
-            
+
+
             Content = new StackLayout
             {
                 Margin = new Thickness(20),
@@ -76,6 +85,7 @@ namespace SecurePass.Pages
                     nameEntry,
                     new Label { Text = "Password" },
                     passEntry,
+                    showButton,
                     //new Label { Text = "Edit" },
                     //editSwitch,
 

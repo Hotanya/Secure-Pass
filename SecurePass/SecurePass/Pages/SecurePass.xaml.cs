@@ -102,6 +102,7 @@ namespace SecurePass
             //Starting the Random
             Random r = new Random();
 
+
             //for lower
             int countLower = r.Next(lower.Count);
             int countLower1 = r.Next(lower.Count);
@@ -167,9 +168,9 @@ namespace SecurePass
             //{
             //    foreach (string x in all)
             //    {
-            //        bleh[i] = x;
+                    
             //    }
-                
+
             //}
 
             output = p1 + p11 + p2 + p22 + p3 + p33 + p4 + p44;
@@ -181,7 +182,7 @@ namespace SecurePass
             var newStep = Math.Round(e.NewValue / step);
             var currentStep = newStep.ToString();
             var cat = currentStep.ToString();
-            label.Text = "Password length is " + cat;
+            //label.Text = "Password length is " + cat;
         }
 
         async void CopyPassword(object sender, EventArgs e)

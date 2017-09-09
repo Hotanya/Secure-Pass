@@ -1,32 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SecurePass.SecurePass">
+             x:Class="SecurePass.SecurePass"
+             xmlns:controls="clr-namespace:SecurePass.Pages;assembly=SecurePass">
 
-    <StackLayout>
-    <!--<Label Text="SecurePass"
-         VerticalOptions="Start"
-         HorizontalTextAlignment="Center"
-         Rotation="0"
-         IsVisible="true"
-         FontSize="Large"
-         FontAttributes="Bold"
-         TextColor="Black" />
-
-        <Button Text="Generate Password"
-        HorizontalOptions="Center"
-        VerticalOptions="CenterAndExpand"
-        Clicked="OnButtonClicked" />-->   
-
-    <!--<Label x:Name="valueLabel"
-       Font="Large"
-       HorizontalOptions="Center"
-       VerticalOptions="CenterAndExpand" />-->
-
-    <!--<Button Text="Copy Password"
-       HorizontalOptions="Center"
-       VerticalOptions="Center"
-       Clicked="Button_Clicked" />-->
-
-    </StackLayout>
 </ContentPage>

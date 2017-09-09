@@ -39,6 +39,7 @@
     <Compile Include="CustomersDataAccess.cs" />
     <Compile Include="IDatabaseConnection.cs" />
     <Compile Include="IFileHelper.cs" />
+    <Compile Include="Pages\AddControlView.cs" />
     <Compile Include="Pages\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>

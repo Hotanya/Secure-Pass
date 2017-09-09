@@ -53,6 +53,12 @@ namespace SecurePass
             //};
             //slider.ValueChanged += Slider_ValueChanged;
 
+            var acv = new AddControlView{
+                HeightRequest = 50,
+                WidthRequest = 320,
+                VerticalOptions = LayoutOptions.EndAndExpand
+            };
+
             valueLabel = new Label
             {
                 FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
@@ -67,11 +73,6 @@ namespace SecurePass
             //    HorizontalOptions = LayoutOptions.Center,
             //    VerticalOptions = LayoutOptions.CenterAndExpand,
 
-            //};
-
-            // Accomodate iPhone status bar.
-            //this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
-
             // Build the page.
             this.Content = new StackLayout
             {
@@ -83,6 +84,7 @@ namespace SecurePass
                     generateButton,
                     valueLabel,
                     copyButton,
+                    acv
 
                 }
             };

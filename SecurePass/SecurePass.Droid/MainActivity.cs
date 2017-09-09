@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Gms.Ads;
 
 namespace SecurePass.Droid
 {
@@ -14,6 +15,7 @@ namespace SecurePass.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-5855889298757956~2712914904");
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

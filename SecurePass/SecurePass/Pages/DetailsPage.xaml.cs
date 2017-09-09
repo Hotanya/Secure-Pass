@@ -34,8 +34,15 @@ namespace SecurePass.Pages
                 passEntry.IsPassword = false;
             };
 
-                var editSwitch = new Switch();
+            var acv = new AddControlView
+            {
+                HeightRequest = 50,
+                WidthRequest = 360
+            };
+
+            var editSwitch = new Switch();
             editSwitch.SetBinding(Switch.IsToggledProperty, "Edit");
+        
 
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += async (sender, e) =>
@@ -87,12 +94,12 @@ namespace SecurePass.Pages
                     passEntry,
                     showButton,
                     //new Label { Text = "Edit" },
-                    //editSwitch,
-
+                   
                     //editSwitch,
                     saveButton,
                     deleteButton,
                     cancelButton,
+                    acv,
                 }
             };
             //if (editSwitch.IsToggled == false)

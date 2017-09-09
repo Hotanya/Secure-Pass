@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SecurePass.Pages.Database">
+             x:Class="SecurePass.Pages.Database"
+             xmlns:controls="clr-namespace:SecurePass.Pages;assembly=SecurePass">
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="OnApplicationAdded">
             <ToolbarItem.Icon>
@@ -9,15 +11,25 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    
     <ListView x:Name="listView" Margin="20" ItemSelected="OnApplicationItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Label Text="{Binding AccountName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                       
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0"/>
+        <controls:AddControlView Grid.Row="1"/>
+    </Grid>
 </ContentPage>

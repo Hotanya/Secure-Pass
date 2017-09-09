@@ -24,12 +24,13 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    <Grid RowSpacing="0">
+    <!--This grid adds a banner ad, but if its enabled, accouts dont show up-->
+    <!--<Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <ListView Grid.Row="0"/>
         <controls:AddControlView Grid.Row="1"/>
-    </Grid>
+    </Grid>-->
 </ContentPage>

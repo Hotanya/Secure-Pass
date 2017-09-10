@@ -9,6 +9,7 @@
         <StackLayout BackgroundColor="White">
             <Button Text="Home" TextColor="White" BackgroundColor="Green" Command="{Binding GoHomeCommand}" />
             <Button Text="View Stored Passwords" TextColor="White" BackgroundColor="Navy" Command="{Binding GoDbCommand}" />
+            <Button Text="Help" TextColor="White" BackgroundColor="Red" Command="{Binding GoHelpCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

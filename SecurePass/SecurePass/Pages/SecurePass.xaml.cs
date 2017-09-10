@@ -34,6 +34,21 @@ namespace SecurePass
                 HorizontalOptions = LayoutOptions.Center
             };
 
+            ToolbarItems.Add(new ToolbarItem()
+            {
+                Icon = "help.png",
+                Order = ToolbarItemOrder.Primary,
+                Priority = 0,
+                Command = new Command(() => Navigation.PushAsync(new HelpPage()))
+            });
+
+            //var help = new ToolbarItem
+            //{
+            //    Icon = "help.png",
+            //    Text = "Help",
+            //    Command = new Command(this.ShowHelpPage)
+            //};
+
             var generateButton = new Button { Text = "Generate Password",
             HorizontalOptions = LayoutOptions.Center};
             generateButton.Clicked += OnButtonClicked;
@@ -195,6 +210,10 @@ namespace SecurePass
             });            
         }
 
+        private void ShowHelpPage()
+        {
+            Navigation.PushAsync(new HelpPage());
+        }
         public class App : Application
         {
         }

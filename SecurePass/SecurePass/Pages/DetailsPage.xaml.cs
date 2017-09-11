@@ -21,30 +21,67 @@ namespace SecurePass.Pages
 
             var nameEntry = new Entry();
             nameEntry.SetBinding(Entry.TextProperty, "AccountName");
+            nameEntry.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            nameEntry.WidthRequest = 330;
+
 
             var passEntry = new Entry();
             passEntry.SetBinding(Entry.TextProperty, "Password");
+            passEntry.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            passEntry.WidthRequest = 330;
             passEntry.IsPassword = true;
 
             var showButton = new Button { Text = "Show Password",
             HeightRequest = 50,
-            WidthRequest= 100};
+            WidthRequest= 330,
+            HorizontalOptions = LayoutOptions.CenterAndExpand,
+
+        };
             showButton.Clicked += async (sender, e) =>
             {
                 passEntry.IsPassword = false;
             };
 
+            var padding = new Label
+            {
+
+            };
+
+            var padding2 = new Label
+            {
+
+            };
+
+            var padding3 = new Label
+            {
+
+            };
+
+            var padding4 = new Label
+            {
+
+            };
+
+            var padding5 = new Label
+            {
+
+            };
+
             var acv = new AddControlView
             {
                 HeightRequest = 50,
-                WidthRequest = 360
+                WidthRequest = 360,
+                VerticalOptions = LayoutOptions.End
             };
 
             var editSwitch = new Switch();
             editSwitch.SetBinding(Switch.IsToggledProperty, "Edit");
         
 
-            var saveButton = new Button { Text = "Save" };
+            var saveButton = new Button { Text = "Save",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                WidthRequest = 330
+            };
             saveButton.Clicked += async (sender, e) =>
                 {
                     if (nameEntry.Text == null || passEntry.Text == null)
@@ -59,7 +96,10 @@ namespace SecurePass.Pages
                     }
             };
 
-            var deleteButton = new Button { Text = "Delete" };
+            var deleteButton = new Button { Text = "Delete",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                WidthRequest = 330
+            };
             deleteButton.Clicked += async (sender, e) =>
             {                
                 {
@@ -75,7 +115,10 @@ namespace SecurePass.Pages
                 }
             };
 
-            var cancelButton = new Button { Text = "Cancel" };
+            var cancelButton = new Button { Text = "Cancel",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                WidthRequest = 330
+            };
             cancelButton.Clicked += async (sender, e) =>
             {
                 await Navigation.PopAsync();
@@ -84,7 +127,7 @@ namespace SecurePass.Pages
 
             Content = new StackLayout
             {
-                Margin = new Thickness(20),
+                //Margin = new Thickness(20),
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 Children =
                 {
@@ -98,10 +141,18 @@ namespace SecurePass.Pages
                     //editSwitch,
                     saveButton,
                     deleteButton,
-                    cancelButton,
+                    cancelButton,  
+                    padding,
+                    padding2,
+                    padding3,
+                    padding4,
+                    padding5,
                     acv,
                 }
+                
+
             };
+           
             //if (editSwitch.IsToggled == false)
             //{
             //    passEntry.IsEnabled = false;

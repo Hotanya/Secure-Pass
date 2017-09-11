@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SecurePass.Pages.Database"
-             xmlns:controls="clr-namespace:SecurePass.Pages;assembly=SecurePass">
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:controls="clr-namespace:SecurePass.Pages;assembly=SecurePass"
+             xmlns:ads="http://schemas.android.com/apk/res-auto">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="OnApplicationAdded">
@@ -11,26 +13,16 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    
+
     <ListView x:Name="listView" Margin="20" ItemSelected="OnApplicationItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                         <Label Text="{Binding AccountName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                       
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    <!--This grid adds a banner ad, but if its enabled, accouts dont show up-->
-    <!--<Grid RowSpacing="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <ListView Grid.Row="0"/>
-        <controls:AddControlView Grid.Row="1"/>
-    </Grid>-->
 </ContentPage>

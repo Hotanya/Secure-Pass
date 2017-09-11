@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SecurePass.Pages.HelpPage">
+             x:Class="SecurePass.Pages.HelpPage"
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:controls="clr-namespace:SecurePass.Pages;assembly=SecurePass"
+             xmlns:ads="http://schemas.android.com/apk/res-auto">
+ 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Help Page" />
         </StackLayout>
+        
     </ContentPage.Content>
+   
 </ContentPage>

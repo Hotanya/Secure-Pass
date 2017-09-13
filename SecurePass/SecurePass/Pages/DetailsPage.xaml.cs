@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Android.Gms.Ads;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -64,7 +64,7 @@ namespace SecurePass.Pages
 
             var padding5 = new Label
             {
-
+                HeightRequest = 32,
             };
 
             var acv = new AddControlView
@@ -90,6 +90,7 @@ namespace SecurePass.Pages
                     }
                     else
                     {
+                        DependencyService.Get<IAdMobInterstitial>().Show("ca-app-pub-5855889298757956/4582376251");
                         var application = (User)BindingContext;
                         await App.Database.SaveApplicationAsync(application);
                         await Navigation.PopAsync();

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.eSecurePass.eSecurePass" android:versionName="1.3" android:versionCode="4">
-	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="25" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.eSecurePass.eSecurePass" android:versionName="1.4" android:versionCode="5">
+	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="25" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<application android:label="eSecurePass.Droid" android:icon="@drawable/icon">
+	<application android:label="eSecurePass" android:icon="@drawable/icon">
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 		<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
 	</application>

@@ -49,6 +49,7 @@
     <Compile Include="Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\IAdMobInterstitial.cs" />
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
@@ -111,7 +112,7 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.270\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.GooglePlayServices.Ads.Lite">
-      <HintPath>..\SecurePass.Droid\obj\Debug\XbdMerge\Xamarin.GooglePlayServices.Ads.Lite.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.GooglePlayServices.Ads.Lite.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Ads.Lite.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

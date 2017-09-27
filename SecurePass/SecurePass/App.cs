@@ -33,7 +33,7 @@ namespace SecurePass
             var menuPage = new Pages.MenuPage();
             //line below shows numpad without menu icon on top
             //var navContainer = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<Pages.PinLoginPageModel>());
-            NavigationPage = new NavigationPage(new SecurePass());
+            NavigationPage = new NavigationPage(new Pages.PinLoginPage());
             root = new Pages.root();
             root.Master = menuPage;
             root.Detail = NavigationPage;

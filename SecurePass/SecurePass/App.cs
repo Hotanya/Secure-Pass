@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
-
+using FreshMvvm;
 using Xamarin.Forms;
 
 namespace SecurePass
@@ -31,11 +31,13 @@ namespace SecurePass
         public App()
         {
             var menuPage = new Pages.MenuPage();
+            //line below shows numpad without menu icon on top
+            //var navContainer = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<Pages.PinLoginPageModel>());
             NavigationPage = new NavigationPage(new SecurePass());
             root = new Pages.root();
             root.Master = menuPage;
             root.Detail = NavigationPage;
-            MainPage = root;
+            MainPage = root;//if using navContainer, MainPage=navContainer
         }      
         
         public static CustomersDataAccess Database

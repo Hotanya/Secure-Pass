@@ -1,5 +1,8 @@
 ﻿{
   "dependencies": {
+    "FreshMvvm": "2.2.0",
+    "PropertyChanged.Fody": "2.1.4",
+    "Xamarin.Forms": "2.3.4.270"
   },
   "frameworks": {
     ".NETPortable,Version=v4.5,Profile=Profile259": {}
